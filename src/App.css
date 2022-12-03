@@ -1,0 +1,28 @@
+.App {
+  background-color: #586072;
+  min-height: 100vh;
+  color: white;
+}
+
+.App-header {
+  height: 70px;
+  display: flex;
+  justify-content: flex-end;
+  background-color: rgb(49, 20, 179);
+  align-items: center;
+  padding-right: 40px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.main {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
