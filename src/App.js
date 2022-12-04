@@ -1,6 +1,6 @@
 import './App.css';
 
-import {initializeApp} from "firebase/app";
+/* import {initializeApp} from "firebase/app";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCBIcDPknkGxmwf4UZ44iv9J2SwsJc9Q68",
@@ -11,7 +11,7 @@ const firebaseConfig = {
   appId: "1:614329792925:web:247a105f7af8d60b305774"
 };
 
-const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig); */
 
 function App() {
   return (

@@ -1,6 +1,6 @@
 {
   "database": {
-    "rules": "y"
+    "rules": "firebase.rules.json"
   },
   "hosting": {
     "public": "build",
