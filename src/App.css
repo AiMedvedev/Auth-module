@@ -23,20 +23,6 @@ h1, h2, h3, p {
   margin: 0;
 }
 
-.App-header {
-  height: 70px;
-  display: flex;
-  justify-content: flex-end;
-  background-color: rgb(49, 20, 179);
-  align-items: center;
-  padding-right: 40px;
-}
-
-.options {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
 
 .main {
   display: flex;
@@ -45,17 +31,4 @@ h1, h2, h3, p {
   font-size: 24px;
   min-height: 100vh;
   background-color: #586072;
-}
-
-.lang-choice {
-  line-height: 1.7;
-}
-
-.login {
-  width: 90px;
-  height: 30px;
-  border: none;
-  border-radius: 20px;
-  font-weight: 700;
-  cursor: pointer;
 }
