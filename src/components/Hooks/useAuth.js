@@ -5,6 +5,7 @@ import {
 
 export const useAuth = (authFirebase) => {
 	const [authentication, setAuthentication] = useState(null);
+	
 
 	const auth = authFirebase();
 
@@ -32,4 +33,13 @@ export const useAuth = (authFirebase) => {
 		logIn,
 		logOut
 	}
+}
+
+export const useLoggedIn = () => {
+	const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+	return {
+		isLoggedIn,
+		setIsLoggedIn
+	}	
 }

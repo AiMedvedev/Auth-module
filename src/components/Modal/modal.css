@@ -99,3 +99,21 @@ button.secondary {
 button.secondary:hover {
 	background: #a8c787;
 }
+
+.register {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: black;
+	margin-top: 40px;
+}
+
+.registerBtn {
+	color:rgb(49, 20, 179);
+	cursor: pointer;
+	transition: color .3s ease-in-out;
+}
+
+.registerBtn:hover {
+	color:rgb(114, 91, 218);
+}

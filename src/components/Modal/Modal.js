@@ -19,13 +19,14 @@ import "./modal.css";
 
 export const Modal = () => {
 
-	const {auth: {logIn}} = useContext(Context);
+	const {auth: {logIn}, isLoggedIn: {setIsLoggedIn}} = useContext(Context);
 
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 		
 	const onLogin = (e) => {
 		e.preventDefault();
+		setIsLoggedIn(true);
 		signInWithEmailAndPassword(auth, email, password)
 		.then((userCredential) => {
 			// Signed in
@@ -36,7 +37,10 @@ export const Modal = () => {
 			const errorMessage = error.message;
 			console.log(errorCode, errorMessage)
 		});
-		
+	}
+
+	const register = () => {
+		console.log('Открывается окно регистрации');
 	}
 
     return (
@@ -68,6 +72,11 @@ export const Modal = () => {
         <button className="secondary" onClick={logIn}>
           Войти с аккаунта Google
         </button>
+		<div className="register">
+			<p className="noAccount">Нет аккаунта?</p>
+			<a className="registerBtn" onClick={register}> Зарегистрироваться</a>
+		</div>
+		
       </div>
     );
 }
