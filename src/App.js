@@ -1,8 +1,12 @@
 //import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
-import Register from "./components/accounts/Register/Register";
-import Login from "./components/accounts/Login/Login";
+import ErrorMessage from "./components/layouts/ErrorMessage";
+import Register from "./accounts/Register";
+import Login from "./accounts/Login";
+import Profile from "./accounts/Profile";
+import Header from "./components/layouts/Header"; 
+import WithPrivateRoute from "./utils/WithPrivateRoute";
+import { AuthProvider } from "./contexts/AuthContext";
 /* import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/database';
@@ -13,33 +17,29 @@ import {Context} from './components/Functions/context';
 import {firebaseConfig} from './firebase'; */
 
 
-//firebase.initializeApp(firebaseConfig);
-
-function App() {
-  //const auth = useAuth(firebase.auth);
-  //const isLoggedIn = useLoggedIn(null);
-  
+function App() { 
 
   return (
-    <Router>
-      <Routes>
-        <Route exact path="/register" element={<Register />} />
-        <Route exact path="/login" element={<Login />} />
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Header />
+        <ErrorMessage />
+        <Routes>
+          <Route exact path="/" />
+          <Route exact path="/register" element={<Register />} />
+          <Route exact path="/login" element={<Login />} />
+          <Route
+            exact path="/profile"
+            element={
+              <WithPrivateRoute>
+                <Profile />
+              </WithPrivateRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
 export default App;
-
-
-//<Context.Provider value={{auth, isLoggedIn}}>
-  //    <Header className="App-header" {...auth} />
-    //  <main className="main">
-      //  {auth.authentication ?
-        //<div> Здесь будет приложение</div>
-        //:
-        //<Modal />
-       // }
-      //</main>
-    //</Context.Provider>
