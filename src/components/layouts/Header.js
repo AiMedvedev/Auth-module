@@ -29,7 +29,7 @@ export default function Header() {
             Authorization: `Bearer ${token}`,
           },
         };
-        const res = await fetch("http://localhost:3000", payloadHeader);
+        const res = await fetch("auth-module-e9a14.firebaseapp.com", payloadHeader);
       } catch (e) {
         console.log(e);
       }
