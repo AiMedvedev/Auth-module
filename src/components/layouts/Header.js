@@ -49,15 +49,8 @@ export default function Header() {
           </Link>
           <div className="flex md:order-2">
             <ThemeToggler />
-            {!currentUser && 
-            <Link
-                className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
-                to="/login"
-              >
-                <LogoutIcon className="h-8 w-8" aria-hidden="true" />
-            </Link>
-            }
-            {currentUser && (
+            
+            {currentUser ? (
               <>
                 <button
                   className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
@@ -73,7 +66,14 @@ export default function Header() {
                   {currentUser.displayName}
                 </Link>
               </>
-            )}
+            ) :
+          <Link
+                className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
+                to="/login"
+              >
+                <LogoutIcon className="h-8 w-8" aria-hidden="true" />
+            </Link>
+          }
           </div>
         </div>
       </nav>
