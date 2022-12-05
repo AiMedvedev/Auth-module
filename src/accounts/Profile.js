@@ -24,6 +24,7 @@ export default function Profile() {
       setError("");
       setLoading(true);
       const user = currentUser;
+	  console.log(user);
       const profile = {
         displayName: username
       };
