@@ -59,7 +59,7 @@ export const AuthProvider = ({ children }) => {
             Authorization: `Bearer ${token}`,
           },
         };
-        const res = await fetch("auth-module-e9a14.firebaseapp.com", payloadHeader);
+        await fetch("auth-module-e9a14.firebaseapp.com", payloadHeader);
       } catch (e) {
         console.log(e);
       }
