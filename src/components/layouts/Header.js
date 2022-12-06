@@ -9,13 +9,9 @@ import ThemeToggler from "./ThemeToggler";
 import auth from "../../firebase";
 
 
-
-
-
 export default function Header() {
   const [modal, setModal] = useState(false);
-
-  const { currentUser } = useAuth();
+  const { currentUser, username } = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,7 +25,7 @@ export default function Header() {
             Authorization: `Bearer ${token}`,
           },
         };
-        const res = await fetch("auth-module-e9a14.firebaseapp.com", payloadHeader);
+        await fetch("auth-module-e9a14.firebaseapp.com", payloadHeader);
       } catch (e) {
         console.log(e);
       }
@@ -60,20 +56,20 @@ export default function Header() {
                 </button>
 
                 <Link
-                  to="/profile"
+                  to="/profile"                 
                   className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-full text-lg leading-7 p-2.5"
                 >
-                  {currentUser.displayName}
+                  {username}
                 </Link>
               </>
-            ) :
-          <Link
-                className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
-                to="/login"
-              >
-                <LogoutIcon className="h-8 w-8" aria-hidden="true" />
-            </Link>
-          }
+              ) :
+              <Link
+                    className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-lg text-sm p-2.5"
+                    to="/login"
+                  >
+                    <LogoutIcon className="h-8 w-8" aria-hidden="true" />
+              </Link>
+            }
           </div>
         </div>
       </nav>

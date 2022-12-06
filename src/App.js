@@ -7,17 +7,9 @@ import Profile from "./accounts/Profile";
 import Header from "./components/layouts/Header"; 
 import WithPrivateRoute from "./utils/WithPrivateRoute";
 import { AuthProvider } from "./contexts/AuthContext";
-/* import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/database';
-import {useAuth, useLoggedIn} from './components/Hooks/useAuth';
-import {Header} from './components/Header/Header';
-import {Modal} from './components/Modal/Modal';
-import {Context} from './components/Functions/context';
-import {firebaseConfig} from './firebase'; */
 
 
-function App() { 
+function App() {
 
   return (
     <AuthProvider>
@@ -25,7 +17,7 @@ function App() {
         <Header />
         <ErrorMessage />
         <Routes>
-          <Route exact path="/" />
+          <Route exact path="/" element={(<div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 text-4xl">Welcome!</div>)} />
           <Route exact path="/register" element={<Register />} />
           <Route exact path="/login" element={<Login />} />
           <Route

@@ -11,15 +11,16 @@ import { updateProfile, signOut } from "firebase/auth";
 const AuthContext = createContext();
 
 
-export function useAuth() {
+export const useAuth = () => {
   return useContext(AuthContext);
 }
 
 
-export function AuthProvider({ children }) {
+export const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
+  const [username, setUsername] = useState();
 
   function register(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);
@@ -46,6 +47,27 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const user = auth.currentUser;
+        const token = user && (await user.getIdToken());
+
+        const payloadHeader = {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        const res = await fetch("auth-module-e9a14.firebaseapp.com", payloadHeader);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+
+    fetchData();
+  }, [currentUser, username]);
+
   const value = {
     currentUser,
     login,
@@ -54,6 +76,8 @@ export function AuthProvider({ children }) {
     error,
     setError,
     updateUserProfile,
+    username,
+    setUsername
   };
 
   return (
