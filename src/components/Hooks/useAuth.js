@@ -1,10 +1,6 @@
-import {
-	useState,
-	useEffect
-} from 'react';
+
 
 export const useGoggleAuth = (authFirebase) => {
-	const [authentication, setAuthentication] = useState(null);
 	
 	const auth = authFirebase();
 
@@ -12,24 +8,8 @@ export const useGoggleAuth = (authFirebase) => {
 
 	const logIn = () => auth.signInWithPopup(provider);
 
-	const logOut = () => {
-		auth.signOut()
-			.catch(err => console.error())
-	}
-
-	useEffect(() => {
-		auth.onAuthStateChanged(user => {
-			if (user) {
-				setAuthentication(user);
-			} else {
-				setAuthentication(null);
-			}
-		})
-	}, [auth, authentication]);
 
 	return {
-		authentication,
-		logIn,
-		logOut
+		logIn
 	}
 }

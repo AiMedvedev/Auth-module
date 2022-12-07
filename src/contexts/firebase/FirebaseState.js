@@ -6,7 +6,7 @@ import {ADD_NOTE, FETCH_NOTES, REMOVE_NOTE, SHOW_LOADER} from '../types';
 import {auth} from '../../firebase';
 
 
-const url = 'https://auth-module-e9a14-default-rtdb.firebaseio.com/';
+const url = 'https://auth-module-e9a14-default-rtdb.firebaseio.com';
 
 
 export const FirebaseState = ({children}) => {
@@ -21,11 +21,6 @@ export const FirebaseState = ({children}) => {
 	const showLoader = () => dispatch({type: SHOW_LOADER});
 
 	const fetchNotes = async () => {
-		/* if (!auth.currentUser.uid) {
-			showLoader(false);
-			return
-		} else {
- */
 		showLoader();
 
 		const res = await axios.get(`${url}/${auth.currentUser.uid}/notes.json`);
@@ -38,8 +33,7 @@ export const FirebaseState = ({children}) => {
 		});
 		
 		dispatch({type: FETCH_NOTES, payload});
-		}
-	//}
+	}
 
 	const addNote = async title => {
 		const note = {
