@@ -21,11 +21,11 @@ export const FirebaseState = ({children}) => {
 	const showLoader = () => dispatch({type: SHOW_LOADER});
 
 	const fetchNotes = async () => {
-		if (!initialState.notes) {
-			alert("there is no notes!");
+		/* if (!auth.currentUser.uid) {
 			showLoader(false);
-		}
-
+			return
+		} else {
+ */
 		showLoader();
 
 		const res = await axios.get(`${url}/${auth.currentUser.uid}/notes.json`);
@@ -38,7 +38,8 @@ export const FirebaseState = ({children}) => {
 		});
 		
 		dispatch({type: FETCH_NOTES, payload});
-	}
+		}
+	//}
 
 	const addNote = async title => {
 		const note = {

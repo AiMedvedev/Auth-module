@@ -3,10 +3,9 @@ import {
 	useEffect
 } from 'react';
 
-export const useAuth = (authFirebase) => {
+export const useGoggleAuth = (authFirebase) => {
 	const [authentication, setAuthentication] = useState(null);
 	
-
 	const auth = authFirebase();
 
 	const provider = new authFirebase.GoogleAuthProvider();
@@ -33,13 +32,4 @@ export const useAuth = (authFirebase) => {
 		logIn,
 		logOut
 	}
-}
-
-export const useLoggedIn = () => {
-	const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-	return {
-		isLoggedIn,
-		setIsLoggedIn
-	}	
 }

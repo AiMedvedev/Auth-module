@@ -21,6 +21,7 @@ export const AuthProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [username, setUsername] = useState();
+  
 
   function register(email, password) {
     return createUserWithEmailAndPassword(auth, email, password);

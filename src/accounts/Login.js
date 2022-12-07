@@ -1,9 +1,10 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect} from "react";
-
 import { useAuth } from "../contexts/AuthContext";
-
+import {useGoggleAuth} from '../components/Hooks/useAuth';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -12,7 +13,7 @@ export default function Login() {
   const navigate = useNavigate();
   const { currentUser, login, setError } = useAuth();
   const [loading, setLoading] = useState(false);
-
+  const {logIn} = useGoggleAuth(firebase.auth);
   useEffect(() => {
     if (currentUser) {
       navigate("/");
@@ -78,7 +79,13 @@ export default function Login() {
               Login
             </button>
           </div>
-          <div className="flex items-center justify-between">
+        </form>
+        <br/>
+        <div className="flex flex-col items-center justify-between">
+            <button className="w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-sky-800 hover:bg-sky-900 mb-6" onClick={logIn}>
+              Войти с аккаунта Google
+            </button>
+            
             <div className="text-sm">
               <Link
                 to="/register"
@@ -88,7 +95,6 @@ export default function Login() {
               </Link>
             </div>
           </div>
-        </form>
       </div>
     </div>
   );

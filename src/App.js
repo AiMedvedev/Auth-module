@@ -14,7 +14,6 @@ import { FirebaseState } from './contexts/firebase/FirebaseState';
 
 
 function App() {
-  
 
   return (
     <FirebaseState>
