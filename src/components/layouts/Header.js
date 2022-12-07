@@ -6,12 +6,12 @@ import { useAuth } from "../../contexts/AuthContext";
 import Logout from "../../accounts/Logout";
 import ThemeToggler from "./ThemeToggler";
 
-import auth from "../../firebase";
+import {auth} from "../../firebase";
 
 
 export default function Header() {
   const [modal, setModal] = useState(false);
-  const { currentUser, username } = useAuth();
+  const { currentUser } = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -59,7 +59,7 @@ export default function Header() {
                   to="/profile"                 
                   className="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none rounded-full text-lg leading-7 p-2.5"
                 >
-                  {username}
+                  {currentUser.displayName}
                 </Link>
               </>
               ) :
@@ -72,8 +72,8 @@ export default function Header() {
             }
           </div>
         </div>
-      </nav>
-      {modal && <Logout modal={modal} setModal={setModal} />}
+        {modal && <Logout modal={modal} setModal={setModal} />}
+      </nav>  
     </>
   );
 }

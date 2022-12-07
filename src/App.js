@@ -11,9 +11,11 @@ import { AuthProvider } from "./contexts/AuthContext";
 import { Alert } from './components/ToDo/Alert';
 import { AlertState } from './contexts/alert/AlertState';
 import { FirebaseState } from './contexts/firebase/FirebaseState';
-//import { useAuth } from "./contexts/AuthContext";
+
 
 function App() {
+  
+
   return (
     <FirebaseState>
       <AlertState>
