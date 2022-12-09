@@ -19,7 +19,7 @@ export const ToDo = () => {
 
 			<hr/>
 
-			{loading ? <Loader/> : <Notes notes={notes} onRemove={removeNote}/>}
+			{loading ? <Loader/> : <Notes data-testid='todo-list' notes={notes} onRemove={removeNote}/>}
 		</>
 	)
 }

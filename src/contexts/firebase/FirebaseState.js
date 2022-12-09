@@ -21,25 +21,25 @@ export const FirebaseState = ({children}) => {
 	const showLoader = () => dispatch({type: SHOW_LOADER});
 
 	const fetchNotes = async () => {
-		/* if (!auth.currentUser.uid) {
-			showLoader(false);
-			return
+
+		const res = await axios.get(`${url}/${auth.currentUser.uid}.json`);
+
+		if (res.data === null) {
+			return;
 		} else {
- */
-		showLoader();
-
-		const res = await axios.get(`${url}/${auth.currentUser.uid}/notes.json`);
-
-		const payload = Object.keys(res.data).map(key => {
+			showLoader();
+			const notes = await axios.get(`${url}/${auth.currentUser.uid}/notes.json`);
+			const payload = Object.keys(notes.data).map(key => {
+				
 			return {
-				...res.data[key],
+				...notes.data[key],
 				id: key
-			}
-		});
-		
-		dispatch({type: FETCH_NOTES, payload});
+			}});
+			
+			dispatch({type: FETCH_NOTES, payload});
 		}
-	//}
+	}	
+
 
 	const addNote = async title => {
 		const note = {

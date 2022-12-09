@@ -12,8 +12,9 @@ export default function Login() {
 
   const navigate = useNavigate();
   const { currentUser, login, setError } = useAuth();
-  const [loading, setLoading] = useState(false);
-  const {logIn} = useGoggleAuth(firebase.auth);
+  const [ loading, setLoading ] = useState(false);
+  const { logIn } = useGoggleAuth(firebase.auth);
+
   useEffect(() => {
     if (currentUser) {
       navigate("/");
@@ -29,7 +30,7 @@ export default function Login() {
         await login(email, password);
         navigate("/profile");
       } catch (e) {
-        setError("Failed to register");
+        setError("Failed to login");
       }
 
       setLoading(false);

@@ -16,20 +16,21 @@ export const Form = () => {
 				.catch(() => alert.show(' Заметка НЕ была создана', 'danger'));
 			setValue('');
 		} else {
-			alert.show(' Введите название заметки');
+			alert.show('Введите название заметки');
 		}
 	}
 
 	return (
-		<form onSubmit={submitHandler}>
-			<div className="form-group">
+		<form className="form-group"  onSubmit={submitHandler}>
+			
 				<input 
+					data-testid="todo-input"
 					type="text" 
 					className="form-control"
 					placeholder='Введите название заметки'
 					value={value}
 					onChange={e => setValue(e.target.value)} />
-			</div>
+			
 		</form>
 	)
 }
