@@ -8,7 +8,7 @@ export default function Profile() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
-  const { currentUser, updateUserProfile, setError, username = currentUser.displayName, setUsername } = useAuth();
+  const { currentUser, updateUserProfile, setError, username, setUsername } = useAuth();
 
 
   const handleFormSubmit = async (e) => {
@@ -17,9 +17,11 @@ export default function Profile() {
     try {
       setError("");
       const user = currentUser;
+      const input = document.querySelector("#username");
       const profile = {
         displayName: username
       };
+      await setUsername(input.value);
       await updateUserProfile(user, profile);
       setLoading(true);
       navigate("/");
@@ -43,8 +45,7 @@ export default function Profile() {
               required
               className="appearance-none rounded-none relative block w-full px-3 py-2 placeholder-gray-500 rounded-t-md bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 focus:z-10 sm:text-sm"
               placeholder="Enter a Display Name"
-              defaultValue={currentUser.displayName}
-              onPointerOut={(e) => setUsername(e.target.value)}
+              defaultValue={username}
             />
           </div>
           <button
