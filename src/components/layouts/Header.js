@@ -1,15 +1,14 @@
 import { LogoutIcon } from "@heroicons/react/outline";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import { useAuth } from "../../contexts/AuthContext";
 import Logout from "../../accounts/Logout";
 import ThemeToggler from "./ThemeToggler";
-
-import {auth} from "../../firebase";
+import { auth } from "../../firebase";
 
 
 export default function Header() {
+
   const [modal, setModal] = useState(false);
   const { currentUser } = useAuth();
 
@@ -30,7 +29,6 @@ export default function Header() {
         console.log(e);
       }
     };
-
     fetchData();
   }, []);
 

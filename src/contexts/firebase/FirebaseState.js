@@ -1,9 +1,9 @@
-import React, {useReducer} from "react";
+import React, { useReducer } from "react";
 import axios from 'axios';
 import { FirebaseContext } from "./firebaseContext";
 import { firebaseReducer } from "./firebaseReducer";
-import {ADD_NOTE, FETCH_NOTES, REMOVE_NOTE, SHOW_LOADER} from '../types';
-import {auth} from '../../firebase';
+import { ADD_NOTE, FETCH_NOTES, REMOVE_NOTE, SHOW_LOADER } from '../types';
+import { auth } from '../../firebase';
 
 
 const url = 'https://auth-module-e9a14-default-rtdb.firebaseio.com/';

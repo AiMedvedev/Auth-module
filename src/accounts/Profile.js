@@ -8,7 +8,7 @@ export default function Profile() {
   const navigate = useNavigate();
 
   const [loading, setLoading] = useState(false);
-  const {currentUser, updateUserProfile, setError, username = currentUser.displayName, setUsername} = useAuth();
+  const { currentUser, updateUserProfile, setError, username = currentUser.displayName, setUsername } = useAuth();
 
 
   const handleFormSubmit = async (e) => {

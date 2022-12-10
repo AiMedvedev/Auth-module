@@ -1,18 +1,20 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
-import {useGoggleAuth} from '../components/Hooks/useAuth';
+import { useGoggleAuth } from '../components/Hooks/useAuth';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 
+
 export default function Login() {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
   const { currentUser, login, setError } = useAuth();
-  const [ loading, setLoading ] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { logIn } = useGoggleAuth(firebase.auth);
 
   useEffect(() => {

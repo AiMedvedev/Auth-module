@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
 
+
 export default function ThemeToggler() {
+  
   const themeToggleBtn = useRef();
   const themeToggleLightIcon = useRef();
   const themeToggleDarkIcon = useRef();

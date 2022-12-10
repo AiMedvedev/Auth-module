@@ -1,12 +1,11 @@
-//import './App.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ErrorMessage from "./components/layouts/ErrorMessage";
 import Register from "./accounts/Register";
 import Login from "./accounts/Login";
 import Profile from "./accounts/Profile";
-import {ToDo} from "./components/ToDo/ToDo";
 import Header from "./components/layouts/Header"; 
 import WithPrivateRoute from "./utils/WithPrivateRoute";
+import { ToDo } from "./components/ToDo/ToDo";
 import { AuthProvider } from "./contexts/AuthContext";
 import { Alert } from './components/ToDo/Alert';
 import { AlertState } from './contexts/alert/AlertState';

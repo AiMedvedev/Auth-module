@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
 import { AlertContext } from '../../contexts/alert/alertContext';
 import { FirebaseContext } from '../../contexts/firebase/firebaseContext';
 
@@ -22,15 +22,13 @@ export const Form = () => {
 
 	return (
 		<form className="form-group"  onSubmit={submitHandler}>
-			
-				<input 
-					data-testid="todo-input"
-					type="text" 
-					className="form-control"
-					placeholder='Введите название заметки'
-					value={value}
-					onChange={e => setValue(e.target.value)} />
-			
+			<input 
+				data-testid="todo-input"
+				type="text" 
+				className="form-control"
+				placeholder='Введите название заметки'
+				value={value}
+				onChange={e => setValue(e.target.value)} />
 		</form>
 	)
 }

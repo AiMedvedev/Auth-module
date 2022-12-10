@@ -6,6 +6,7 @@ import { FirebaseContext } from '../../contexts/firebase/firebaseContext';
 
 
 export const ToDo = () => {
+
 	const {loading, notes, fetchNotes, removeNote} = useContext(FirebaseContext);
 	
 	useEffect(() => {
@@ -16,9 +17,7 @@ export const ToDo = () => {
 	return (
 		<>
 			<Form />
-
 			<hr/>
-
 			{loading ? <Loader/> : <Notes data-testid='todo-list' notes={notes} onRemove={removeNote}/>}
 		</>
 	)

@@ -1,7 +1,7 @@
 import React from 'react';
-import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-export const Notes = ({notes, onRemove}) => (
+export const Notes = ({ notes, onRemove }) => (
 	
 	<TransitionGroup component="ul" className='list-group'>
 		{notes.map(note => (

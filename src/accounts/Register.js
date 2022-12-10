@@ -1,12 +1,11 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useState, useEffect} from "react";
-
+import { useState, useEffect } from "react";
 import { useAuth } from "../contexts/AuthContext";
 
 
-
 export default function Register() {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
